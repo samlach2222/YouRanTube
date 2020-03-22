@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>Randomizer</title>
+        <link href="default.css" rel="stylesheet" type="text/css" media="all" />
+    </head>
+    <body>
+	   <div id="header" class="container">
+		  <div id="logo">
+			 <h1>YouRanTube</h1>
+			 <span>Little tool for random youtube videos</span>
+          </div>
+	   </div>
+        <div id="wrapper1">
+	       <div id="welcome" class="container">
+		      <div class="title">
+			  <h2>Bienvenue sur YouRanTube</h2>
+		      <div class="content">
+			     <p>Cette page sert à chercher aléatoirement une vidéo dans une chaîne YouTube.
+                    Sur touts les autres sites du genres, ils vous proposent de l'aléatoire parmi les 50 dernières vidéos.
+                    Je vous propose parmi les 400 dernières vidéos, tout cela grâce à un incroyable algorithme que je ne saurai expliquer et qui marche quand il veux (d'ou la limite de 400).</p>
+			     <a href="#here" class="button">Commencer</a> </div>
+	          </div>
+           </div>
+           <div id="wrapper3">
+	           <div id="portfolio" class="container">
+		          <div class="title">
+			          <h2 id="here">Randomizer</h2>
+			          <span class="byline">Vous aurez juste besoin d'une clé API et du channel ID</span> 
+                  </div>
+                   <div id="Randomizer">
+                        <form id="Info" name ="Informations">
+                            <div id="Champs">
+                                <div>
+                                    <input type="text" id="SetApiKey" name="API_KEY" placeholder="Enter your API KEY"><br>
+                                </div>
+                                <div>
+                                    <input type="text" id="SetChannelID" name="Channel_ID" placeholder="Enter your Channel ID"><br>
+                                </div>
+                            </div> 
+                        </form>
+                        <div id="button">
+                                <p>
+                                    <button id="GetVideo" onclick="getVideo();">GET VIDEO</button>
+                                </p>
+                        </div>
+                        <p>
+                            <iframe id="video" width="800" height="450" src="" allowfullscreen></iframe> 
+                        </p>
+                   </div>
+               </div>
+           </div>
+           <div id="wrapper2">
+	           <div id="explain" class="container">
+		          <div class="box1">
+			      <h2><span class="explain_APIKEY"></span>API KEY</h2>
+                  <p>If you don't have it, vitit this link : <a href="https://www.youtube.com/watch?v=pP4zvduVAqo">https://www.youtube.com/watch?v=pP4zvduVAqo</a></p>
+			   </div>
+               <hr>
+		       <div class="box2">
+			      <h2><span class="explain_CHANNELID"></span>CHANNEL ID</h2>
+                  <p>If you don't have it, Go to any channel on youtube, right click and click on "Source page". Type CTRL-F and "externalId". The following code is the Channel ID</p>
+			   </div>
+	           </div>
+            </div>
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+	<script type="text/javascript">
+	  function getVideo() {
+            var d0 = "AEIMQUYcgkosw048";
+            var d1 = "ABCDEFGHIJKLMNOP";
+            var d2 = d1;
+            var d1c = 0;
+            var d2c = 0;
+            var overflowSuffix = "Q";
+            var direction = "AA";
+            var d2OverflowCounter = 0;
+            var pageSize = 50;
+            var Tokens = [];
+            var newLength;
+
+            for(i = 0; i < 400; i++) {
+               newLength = Tokens.push("C" + d1.charAt((d1c / d0.length) % d1.length) + d0.charAt(i % d0.length) + overflowSuffix + direction);
+	           if(++d1c % (1 << 8) == 0) d1c = 1 << 7;
+	           if(++d2c % (1 << 7) == 0) overflowSuffix = d2.charAt(++d2OverflowCounter) + "E";
+            };
+            console.log("array - TABLEAU");
+          
+            Tokens.forEach(function(item, index, array) {
+            });
+          
+            var randomPageNumber = Math.floor(Math.random()*(Tokens.length + 1))
+          
+            PageToken = Tokens[randomPageNumber];
+            console.log(Tokens[randomPageNumber]);
+          
+            
+            var video = document.getElementById("video");
+           	var channelID = document.Informations.Channel_ID.value;
+            var apiKey = document.Informations.API_KEY.value;
+			var videosUrl = "https://www.googleapis.com/youtube/v3/search?key=" + apiKey + "&channelId=" + channelID + "&part=snippet,id&order=date&&maxResults=1&pageToken=" + PageToken;
+			var ajax = new XMLHttpRequest(); 
+		  
+			ajax.open("GET", videosUrl, true);
+			ajax.send();
+			ajax.onreadystatechange = function () {
+				if (this.readyState == 4 && this.status == 200) {
+					console.log(this.responseText);
+					var json = JSON.parse(this.responseText);
+					var videos = json.items;
+					console.log(videos);
+					
+					var videoId = videos[0].id.videoId;
+					var videoUrl = "https://www.googleapis.com/youtube/v3/videos?id=" + videoId + "&part=snippet,contentDetails,statistics&key=" + apiKey;
+					
+					var ajax = new XMLHttpRequest();
+					ajax.open("GET", videoUrl, true);
+					ajax.send();
+					
+					ajax.onreadystatechange = function () {
+					if (this.readyState == 4 && this.status == 200) {
+							console.log(this.responseText);
+							var json = JSON.parse(this.responseText);
+							console.log(json.items[0].id)
+							var singleVideo = json.items[0].id;
+							var youtubeUrl = "https://www.youtube.com/embed/" + singleVideo;
+							console.log(youtubeUrl);
+							video.src = youtubeUrl;
+						}
+					};
+				}
+			};
+	  }
+	  </script>
