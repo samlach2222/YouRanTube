@@ -26,4 +26,11 @@ To develop YouRanTube, several softwares were used :
 
 
 * **Samlach22** - [@samlach2222](https://github.com/samlach2222)
+***
+### Copyright :
 
+
+Copyright © 2000 Samlach22 <samlach22@gmail.com>  
+This work is free. You can redistribute it and/or modify it under the  
+terms of the Do What The Fuck You Want To Public License, Version 2,  
+as published by Sam Hocevar. See the COPYING file for more details.
