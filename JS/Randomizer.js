@@ -24,6 +24,8 @@ window.onload = function() // au chargement de la page initialise la barre de pr
 function getVideo() 
 {
     progressBar.style.display = "none"; // apparition du chargement
+    
+    // récupération de la pagination
     var d0 = "AEIMQUYcgkosw048";
     var d1 = "ABCDEFGHIJKLMNOP";
     var d2 = d1;
@@ -41,6 +43,8 @@ function getVideo()
        if(++d1c % (1 << 8) == 0) d1c = 1 << 7;
        if(++d2c % (1 << 7) == 0) overflowSuffix = d2.charAt(++d2OverflowCounter) + "E";
     };
+    
+    
     console.log("array - TABLEAU");
 
     Tokens.forEach(function(item, index, array) {
