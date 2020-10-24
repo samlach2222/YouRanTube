@@ -1,14 +1,9 @@
-	html, body
-	{
-		height: 100%;
-	}
-	
-	body
+    body
 	{
 		margin: 0px;
 		padding: 0px;
 		background: #333333;
-		font-family: 'Source Sans Pro', sans-serif;
+		font-family: 'Lucida Bright', sans-serif;
 		font-size: 12pt;
 		font-weight: 400;
 		color: #000000;
@@ -19,17 +14,6 @@
 	{
 		margin: 0;
 		padding: 0;
-	}
-	
-	p, ol, ul
-	{
-		margin-top: 0;
-	}
-	
-	ol, ul
-	{
-		padding: 0;
-		list-style: none;
 	}
 	
 	p
@@ -54,12 +38,8 @@
 
 	.container
 	{
-		margin: 0px auto;
-		width: 1200px;
+		width: 100%;
 	}
-	
-
-
 
 /*********************************************************************************/
 /* Image Style                                                                   */
@@ -81,24 +61,20 @@
 	{
 		display: block;
 		width: 100%;
-		margin: 0 0 3em 0;
 	}
 	
 	.image-left
 	{
 		float: left;
-		margin: 0 2em 2em 0;
 	}
 	
 	.image-centered
 	{
 		display: block;
-		margin: 0 0 2em 0;
 	}
 	
 	.image-centered img
 	{
-		margin: 0 auto;
 		width: auto;
 	}
 
@@ -134,24 +110,9 @@
 		text-align: center;
 		color: #272925;
 	}
-	
-	.button-small
-	{
-		padding: 0.9em 2em;
-		background: #8DCB89;
-		border-radius: 5px;
-		line-height: 1.8em;
-		font-size: 1em;
-	}
-		
 /*********************************************************************************/
 /* Heading Titles                                                                */
 /*********************************************************************************/
-
-	.title
-	{
-		margin-bottom: 3em;
-	}
 	
 	.title h2
 	{
@@ -159,7 +120,7 @@
 		color: rgba(255,255,255,0.9);
 	}
 	
-	.title .byline
+	.title #needs
 	{
 		letter-spacing: 0.15em;
 		text-transform: uppercase;
@@ -172,35 +133,21 @@
 /* Header                                                                        */
 /*********************************************************************************/
 
-	#header
+	header
 	{
         overflow: hidden;
 		background-size: cover;
         color: red;
-	}
-
-/********************************/
-/* Youtube Randomizer           */
-/********************************/
-
-	#logo
-	{
-		padding: 5em 0em;
+        padding: 5em 0em;
 		text-align: center;
 	}
 	
-	#logo h1
+	header h1
 	{
 		font-size: 3.5em;
 	}
 	
-	#logo a
-	{
-		text-decoration: none;
-		color: #FFF;
-	}
-	
-	#logo span
+	header span
 	{
 		letter-spacing: 0.10em;
 		text-transform: uppercase;
@@ -208,37 +155,25 @@
 		color: rgba(255,255,255,0.5);
 	}
 
-	#logo span a
-	{
-		color: rgba(255,255,255,0.8);
-	}
-
 /********************************/
-/* Wrapper                      */
+/* Parties                      */
 /********************************/
 
-	#wrapper1
+	#website
 	{
 		background: #EDEDED;
 	}
 
-	#wrapper2
+	footer
 	{
 		background: #EDEDED;
 	}
 
-	#wrapper3
+	#youtube
 	{
 		overflow: hidden;
-		padding: 8em 0em;
+		padding: 4em 0em;
 		background: #FFF;
-	}
-	
-	#wrapper4
-	{
-		overflow: hidden;
-		padding: 8em 0em;
-		background: #E74E59;
 	}
 
 /********************************/
@@ -247,15 +182,14 @@
 
 	#welcome
 	{
-		overflow: hidden;
-		padding: 8em 0em;
+		padding: 4em 0em;
 		text-align: center;
 		color: rgba(0,0,0,0.5);
 	}
 	
 	#welcome .content
 	{
-		padding: 0em 8em;
+		padding: 0em 4em;
 	}
 
 	#welcome .title
@@ -273,65 +207,60 @@
 	{
 		color: rgba(0,0,0,0.8);
 	}
-
-
-/*********************************************************************************/
-/* Content                                                                       */
-/*********************************************************************************/
-
-	#content
-	{
-	}
 	
 /*********************************************************************************/
-/* Portfolio                                                                     */
+/* Description                                                                     */
 /*********************************************************************************/
 
-	#portfolio
-	{
-	}
-
-	#portfolio .title
+	#Description .title
 	{
 		text-align: center;
 	}
 
-	#portfolio .title h2
+	#Description .title h2
 	{
 		color: rgba(0,0,0,0.8);
 	}
 
+    #Description p
+    {
+        color : red;
+        font-weight: bold;
+    }
+
 /*********************************************************************************/
-/* explain                                                                     */
+/* footer                                                                     */
 /*********************************************************************************/
 
-	#explain
+	footer
 	{
 		overflow: hidden;
 		padding: 8em 0em;
         display: flex;
+        
 	}
 	
-	#explain .box1,
-	#explain .box2
+	footer #ApiKey, footer #ChannelID
 	{
 		width: 570px;
 		color: rgba(0,0,0,0.6);
         text-align: justify;
 	}
 	
-	#explain .box1
+	footer #ApiKey
 	{
 		float: left;
+        margin-left: 1%;
 	}
 
-	#explain .box2
+	footer #ChannelID
 	{
 		float: right;
+        margin-right: 1%;
 	}
 
-	#explain .box1 h2,
-	#explain .box2 h2
+	footer #ApiKey h2,
+	footer #ChannelID h2
 	{
 		margin-bottom: 1em;
 		text-transform: uppercase;
@@ -360,6 +289,12 @@
         text-align: center;
     }
 
+    #Randomizer img
+    {
+        width: 1em;
+        height: 1em;
+    }
+
     #SetApiKey, #SetChannelID
     {
         width: 300px;
@@ -377,14 +312,23 @@
         border-radius: 5px;
         width: 10%;
         height: 30px;
-        margin-top: 30px;
-        margin-bottom: 20px;
     }
 
     #SetApiKey
     {
-        margin-top: -20px;
     }
+
+    .Champs
+    {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #progressBar
+{
+    display: none;
+}
 
 /*********************************************************************************/
 /* Iframe                                                                        */
@@ -398,11 +342,6 @@
         background-size: contain;
     }
 
-
-
-
-#container {
-  margin: 20px;
-  width: 400px;
-  height: 8px;
-}
+    #container {
+        margin: 20px;
+    }
