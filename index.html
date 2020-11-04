@@ -18,22 +18,19 @@
 		      <div class="title">
 			     <h2>Bienvenue sur YouRanTube</h2>
 		         <div class="content">
-			         <p>Cette page sert à chercher aléatoirement une vidéo dans une chaîne YouTube.
-                        Sur touts les autres sites du genres, ils vous proposent de l'aléatoire parmi les 50 dernières vidéos.
-                        Je vous propose parmi les 400 dernières vidéos, tout cela grâce à un incroyable algorithme que je ne saurai expliquer et qui marche quand il veux (d'ou la limite de 400).</p>
+			         <p>Welcome to YouRanTube, by pressing "Start Randomizing" you will be able to get a random video among all the videos of a youtube channel you want.</p>
                      <form action="#start-randomizing" method="get">
                          <input type="submit" value="Start Randomizing" class="button">
                      </form>
-			         <!--<a href="#start-randomizing" class="button">Commencer</a> -->
                  </div>
 	          </div>
            </div>
            <div id="youtube">
 	           <div id="Description" class="container">
 		          <div class="title">
-			          <h2>Randomizer</h2>
-                      <span id="needs">Vous aurez juste besoin d'une clé API et du channel ID</span>
-                      <p><noscript>Pour utiliser ce site, merci d'activer JavaScript.</noscript></p>
+			          <h2 id="start-randomizing">Randomizer</h2>
+                      <span id="needs">ALL YOU NEED IS AN API KEY AND THE CHANNEL ID</span>
+                      <p><noscript>To use this site, please enable JavaScript.</noscript></p>
                   </div>
                    <div id="Randomizer">
                         <form id="Info" name ="Informations">
@@ -53,7 +50,7 @@
                                 </div>
                         </form>
                         <div id="button">
-                            <button id="getVideo" onclick="GetVideo();">GET VIDEO</button>
+                            <button id="getVideo" onclick="ChannelNameToId();">GET VIDEO</button>
                             <progress id="progressBar"></progress>
                         </div>
                         <p>
@@ -73,7 +70,7 @@
            
           <div id="ChannelID">
 			 <h2>CHANNEL ID</h2>
-             <p>If you don't have it, Go to any channel on youtube, right click and click on "Source page". Type CTRL-F and "externalId". The following code is the Channel ID</p>
+             <p>If you don't have it, Go to any channel on youtube, right click and select "Source page". Type CTRL-F and search "externalId". The following code is the Channel ID</p>
           </div>
         </footer>
         

@@ -1,0 +1,3 @@
+--> Base de donnée associée pour stocker l'intégralité des Datas
+--> PROTEGER CHAMPS DE TEXTE DES ATTAQUES
+--> Gestion des messages d'erreurs
